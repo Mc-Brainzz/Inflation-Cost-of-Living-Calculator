@@ -79,7 +79,9 @@ export default function InvestmentCalculator() {
       y: {
         beginAtZero: true,
         ticks: {
-          callback: (value: number) => `₹${(value / 100000).toFixed(1)}L`,
+          callback: function(this: any, tickValue: number | string) {
+            return `₹${(Number(tickValue) / 100000).toFixed(1)}L`;
+          },
         },
       },
     },
