@@ -63,7 +63,9 @@ export default function HistoricalTrends() {
       y: {
         beginAtZero: true,
         ticks: {
-          callback: (value: number) => `${value}%`,
+          callback: function(this: any, tickValue: number | string) {
+            return `${tickValue}%`;
+          },
         },
       },
     },
